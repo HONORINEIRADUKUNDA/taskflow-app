@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — Focus & Productivity</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>TaskFlow</h1>
+      <p class="subtitle">Stay organized and get things done.</p>
+    </header>
+
+    <!-- Status message container for errors & loading indicators -->
+    <div id="statusMessage" class="status-message hidden" role="status" aria-live="polite"></div>
+
+    <!-- Task Input Form -->
+    <form id="taskForm" class="task-form" autocomplete="off" aria-label="Add a new task">
+      <label for="taskInput" class="visually-hidden">New task title</label>
+      <input
+        type="text"
+        id="taskInput"
+        name="taskInput"
+        placeholder="What needs to be done?"
+        required
+        aria-label="New task title"
+      />
+      <button type="submit" id="addTaskBtn">Add Task</button>
+    </form>
+
+    <!-- Task List Controls & Filters -->
+    <section class="controls-section" aria-label="Task list controls">
+      <div class="counter" id="taskCounter" aria-live="polite">
+        0 tasks left
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter tasks">
+        <button type="button" class="filter-btn active" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-filter="active">Active</button>
+        <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+    </section>
+
+    <!-- Task List -->
+    <main>
+      <ul id="taskList" class="task-list" aria-label="Tasks">
+        <!-- Dynamic task items will render here -->
+      </ul>
+
+      <!-- Empty state placeholder -->
+      <div id="emptyState" class="empty-state">
+        <p>No tasks to show. Add one above to get started!</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Firebase Modular ES Module Script -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
